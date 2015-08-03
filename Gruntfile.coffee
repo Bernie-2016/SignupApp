@@ -9,7 +9,9 @@ cssToConcat = [
 
 # js files to concat/minify
 jsToConcat = [
-  'bower_components/jquery/dist/jquery.min.js'
+  'bower_components/jquery/dist/jquery.js'
+  'bower_components/jquery.maskedInput/dist/jquery.maskedInput.js'
+  'bower_components/jquery.validate/dist/jquery.validate.js'
   'bower_components/dexie/dist/latest/Dexie.js'
   '.tmp/js/*.js'
 ]
@@ -82,6 +84,7 @@ module.exports = (grunt) ->
     watch:
       scripts:
         files: [
+          '**/*.html'
           '**/*.coffee'
           '**/*.scss'
         ]
