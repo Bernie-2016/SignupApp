@@ -11,7 +11,6 @@ $ ->
 
   # Method to send signups to the API
   sendSignups = ->
-    console.log db
     db.signups.where('isStored').equals(0).toArray().then( (unsent) ->
       console.log 'will send'
       console.log unsent
