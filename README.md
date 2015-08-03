@@ -10,4 +10,8 @@ Chrome app for people at events to sign up for Bernie Sanders mails.
 
 3. `grunt`
 
-3. Follow [step 5](https://developer.chrome.com/apps/first_app#five) on this page to open it in Chrome.
+4. Follow [step 5](https://developer.chrome.com/apps/first_app#five) on this page to open it in Chrome.
+
+## Development
+
+Run `grunt watch` to recompile the app whenever a coffee or scss file changes.

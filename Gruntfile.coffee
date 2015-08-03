@@ -77,6 +77,15 @@ module.exports = (grunt) ->
       dist:
         src: ['.tmp/concat/production.css']
         dest: 'dist/production.min.css'
+
+    # grunt watch
+    watch:
+      scripts:
+        files: [
+          '**/*.coffee'
+          '**/*.scss'
+        ]
+        tasks: ['default']
  
   # load plugins
   grunt.loadNpmTasks 'grunt-contrib-clean'
@@ -86,7 +95,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
-  grunt.loadNpmTasks 'grunt-chrome-manifest'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
 
   # tasks
   grunt.registerTask 'default', [
@@ -97,5 +106,4 @@ module.exports = (grunt) ->
     'concat'
     'uglify'
     'cssmin'
-    'chromeManifest:dist'
   ]
