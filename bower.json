@@ -1,0 +1,21 @@
+{
+  "name": "SignupApp",
+  "version": "0.1",
+  "homepage": "https://github.com/SandersForPresident/SignupApp",
+  "authors": [
+    "Zach Schneider <schneidmaster@gmail.com>"
+  ],
+  "description": "Chrome app for people at events to sign up for Bernie Sanders mails.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "dexie": "~1.1.0",
+    "jquery": "~2.1.4"
+  }
+}
