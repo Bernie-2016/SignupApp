@@ -1,0 +1,14 @@
+{
+  "name": "Signup App",
+  "description": "App for users to sign up for Bernie Sanders mailings.",
+  "version": "0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { "16": "icon-16.png", "128": "icon-128.png" },
+  "kiosk_enabled" : true,
+  "kiosk_only" : true
+}
