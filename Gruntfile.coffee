@@ -9,11 +9,12 @@ cssToConcat = [
 
 # js files to concat/minify
 jsToConcat = [
+  '.tmp/js/dexie-patch.js',
   'bower_components/jquery/dist/jquery.js'
   'bower_components/jquery.maskedInput/dist/jquery.maskedInput.js'
   'bower_components/jquery.validate/dist/jquery.validate.js'
   'bower_components/dexie/dist/latest/Dexie.js'
-  '.tmp/js/*.js'
+  '.tmp/js/app.js'
 ]
 
 module.exports = (grunt) ->

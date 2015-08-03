@@ -1,0 +1,2 @@
+window.chrome = 
+  storage: 'placeholder'
