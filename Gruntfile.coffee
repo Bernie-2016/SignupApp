@@ -4,15 +4,16 @@ cwd = process.cwd().replace(/( |\(|\))/g, escapeChar + '$1')
 
 # css files to concat/minify
 cssToConcat = [
-    '.tmp/css/*.css'
-  ]
+  'bower_components/foundation/css/foundation.css'
+  '.tmp/css/*.css'
+]
 
 # js files to concat/minify
 jsToConcat = [
   '.tmp/js/dexie-patch.js',
   'bower_components/jquery/dist/jquery.js'
   'bower_components/jquery.maskedInput/dist/jquery.maskedInput.js'
-  'bower_components/jquery.validate/dist/jquery.validate.js'
+  'bower_components/jqueryui/jquery-ui.js'
   'bower_components/dexie/dist/latest/Dexie.js'
   '.tmp/js/secret.js'
   '.tmp/js/app.js'

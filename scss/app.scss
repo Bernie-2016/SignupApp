@@ -1,3 +1,132 @@
-.invalid {
-  border: solid red 1px;
+@font-face {
+  font-family: 'Freight Sans Book';
+  src: url(../fonts/FreightSans-Book.ttf);
+}
+
+@font-face {
+  font-family: 'Freight Sans Medium';
+  src: url(../fonts/FreightSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Jubilat Medium';
+  src: url(../fonts/JubilatMedium-Roman.otf);
+}
+
+div#main {
+  height: 100%;
+  width: 100%;
+  padding: 25px;
+
+  .row {
+    max-width: none;
+  }
+
+  #logo {
+    width: 90%;
+  }
+
+  #get-involved {
+    margin-top: 40px;
+    line-height: 1;
+    color: #f34854;
+    text-transform: uppercase;
+    font-family: 'Freight Sans Book';
+    font-size: 40px;
+  }
+
+  #join-campaign {
+    line-height: 1;
+    color: #007fbb;
+    font-family: 'Jubilat Medium';
+    font-size: 90px;
+    margin-bottom: 25px;
+  }
+
+  #form-container {
+    background-color: #0084d2;
+    border-radius: 5px;
+    padding: 20px;
+    height: 70%;
+
+    .row {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      div:first-child {
+        padding-left: 30px;
+        padding-right: 25px;
+      }
+
+      div:last-child {
+        padding-left: 25px;
+        padding-right: 30px;
+      }
+    }
+
+    label {
+      color: white;
+      font-size: 30px;
+      text-transform: uppercase;
+      font-family: 'Freight Sans Book';
+      letter-spacing: 4px;
+
+      &.canText {
+        font-size: 20px;
+
+        .lightblue {
+          color: #6eacdf;
+        }
+      }
+    }
+
+    input {
+      height: 75px;
+      border-radius: 5px;
+      font-size: 35px;
+
+      &.checkbox {
+        display: none;
+
+        &+label {
+          padding-top: 10px;
+          padding-left: 50px;
+          background: url(../img/box-unchecked.png) no-repeat;
+          background-position: 0% 50%;
+        }
+
+        &:checked+label {
+          background: url(../img/box-checked.png) no-repeat;
+          background-position: 0% 50%;
+        }
+      }
+
+      &.submit {
+        background-color: #fd505e;
+        width: 100%;
+        font-family: 'Freight Sans Medium';
+        text-transform: uppercase;
+        color: white;
+        font-size: 30px;
+      }
+    }
+
+    .invalid {
+      border: solid red 1px;
+    }
+  }
+
+  .footer {
+    padding-top: 25px;
+    text-align: center;
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }

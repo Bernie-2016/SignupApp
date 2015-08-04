@@ -4,16 +4,67 @@
     <link rel='stylesheet' type='text/css' href='dist/production.min.css' />
   </head>
   <body>
-    <div>Hello, world!</div>
-    <form id='signup-form'>
-      <input type='text' id='name' required />
-      <input type='email' id='email' required />
-      <input type='text' id='phone' required />
-      <input type='text' id='zip' required />
-      <input type='checkbox' id='canText'> Can we text?
-      <input type='submit' />
-    </form>
+    <div id='main' class='container'>
+      <div class='row'>
+        <div class='large-4 columns'>
+          <img src='img/logo.png' id='logo' alt='Bernie 2016' />
+        </div>
+        <div class='large-8 columns'>
+          <div id='get-involved'>
+            Get Involved
+          </div>
+          <div id='join-campaign'>
+            Join the Campaign
+          </div>
+        </div>
+      </div>
+
+      <div id='form-container'>
+        <form id='signup-form'>
+          <div class='row'>
+            <div class='large-6 columns'>
+              <label for='name'>Full Name</label>
+              <input type='text' id='name' required />
+            </div>
+            <div class='large-6 columns'>
+              <label for='email'>Email Address</label>
+              <input type='email' id='email' required />
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='large-6 columns'>
+              <label for='phone'>Cell Phone #</label>
+              <input type='text' id='phone' required />
+            </div>
+            <div class='large-6 columns'>
+              <label for='zip'>ZIP Code</label>
+              <input type='text' id='zip' required />
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='large-6 columns'>
+              <input type='checkbox' id='canText' class='checkbox'><label for='canText' class='canText'>
+                Receive text msgs from Bernie 2016<br />
+                <span class='lightblue'>Msg &amp; data rates may apply</span>
+              </label>
+            </div>
+            <div class='large-6 columns'>
+              <input type='submit' class='submit' value='Sign Me Up' />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class='row'>
+        <div class='large-12 columns footer'>
+          <img src='img/billionaires.png' alt='Paid for by Bernie 2016 (not the billionaires)' />
+        </div>
+      </div>
+    </div>
 
     <script type='text/javascript' src='dist/production.min.js'></script>
+    <script src="//localhost:35729/livereload.js"></script>
   </body>
 </html>
