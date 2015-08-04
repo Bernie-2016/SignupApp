@@ -1,0 +1,1 @@
+window.secret = 'some_secret'
