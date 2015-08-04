@@ -15,6 +15,7 @@ $ ->
   # Method to send signups to the API
   sendSignups = ->
     db.signups.where('isStored').equals(0).toArray().then( (unsent) ->
+      return if unsent.length == 0
       $.ajax
         method: 'post'
         # url: 'https://sanders-api.herokuapp.com/api/v1/signups'
@@ -67,3 +68,7 @@ $ ->
         $('#signup-form')[0].reset()
         $('#name').focus()
       , 2000
+
+  # "Secret" click to send the queue
+  $('.footer img').on 'click', =>
+    sendSignups()
