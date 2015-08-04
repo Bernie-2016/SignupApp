@@ -6,7 +6,7 @@ Chrome app for people at events to sign up for Bernie Sanders mails.
 
 1. Clone the app
 
-2. Copy `coffee/secret.example.coffee` to `coffee/secret.coffee` and fill in the API secret.
+2. Copy `coffee/secret.coffee.example` to `coffee/secret.coffee` and fill in the API secret.
 
 3. `npm install`
 
