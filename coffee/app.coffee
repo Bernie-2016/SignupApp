@@ -12,8 +12,15 @@ $ ->
   # Method to send signups to the API
   sendSignups = ->
     db.signups.where('isStored').equals(0).toArray().then( (unsent) ->
-      console.log 'will send'
-      console.log unsent
+      $.ajax
+        method: 'post'
+        url: 'https://sanders-api.herokuapp.com/api/v1/signups'
+        data: 
+          signups: unsent
+          secret: window.secret
+        success: (response) ->
+          for id in response.processed_ids
+            db.signups.where('id').equals(parseInt(id)).delete()
     ).catch( (error) ->
       console.log error
     )
