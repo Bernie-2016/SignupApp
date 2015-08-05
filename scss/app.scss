@@ -39,7 +39,7 @@ div#main {
     line-height: 1;
     color: #007fbb;
     font-family: 'Jubilat Medium';
-    font-size: 90px;
+    font-size: 80px;
     margin-bottom: 25px;
   }
 
@@ -58,7 +58,7 @@ div#main {
         padding-right: 25px;
       }
 
-      div:last-child {
+      div:last-child:not(.submit-container) {
         padding-left: 25px;
         padding-right: 30px;
       }
@@ -80,28 +80,37 @@ div#main {
       }
     }
 
+    .zip-code-container {
+      padding-left: 25px;
+    }
+
+    .submit-container {
+      padding-right: 30px;
+    }
+
     input {
-      height: 75px;
+      height: 60px;
       border-radius: 5px;
-      font-size: 35px;
+      font-size: 25px;
 
       &.checkbox {
         display: none;
 
         &+label {
-          padding-top: 10px;
+          padding-top: 45px;
           padding-left: 50px;
           background: url(../img/box-unchecked.png) no-repeat;
-          background-position: 0% 50%;
+          background-position: 0% 75%;
         }
 
         &:checked+label {
           background: url(../img/box-checked.png) no-repeat;
-          background-position: 0% 50%;
+          background-position: 0% 75%;
         }
       }
 
       &.submit {
+        margin-top: 45px;
         background-color: #fd505e;
         width: 100%;
         font-family: 'Freight Sans Medium';
@@ -119,6 +128,10 @@ div#main {
   .footer {
     padding-top: 25px;
     text-align: center;
+
+    img {
+      height: 60px;
+    }
   }
 }
 

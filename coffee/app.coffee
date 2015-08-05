@@ -9,7 +9,7 @@ $ ->
   # Set up Dexie DB
   db = new Dexie('SignupApp')
   db.version(1).stores
-    signups: '++id, name, email, phone, zip, canText, isStored'
+    signups: '++id, first_name, last_name, email, phone, zip, canText, isStored'
   db.open()
 
   # Method to add signup to IndexedDB
@@ -59,7 +59,8 @@ $ ->
     event.preventDefault()
     if !$('#signup-form').is(':invalid')
       data = 
-        name: $('#name').val()
+        first_name: $('#first_name').val()
+        last_name: $('#last_name').val()
         email: $('#email').val()
         phone: $('#phone').val()
         zip: $('#zip').val()

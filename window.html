@@ -23,12 +23,12 @@
         <form id='signup-form'>
           <div class='row'>
             <div class='large-6 columns'>
-              <label for='name'>Full Name</label>
-              <input type='text' id='name' required />
+              <label for='name'>First Name</label>
+              <input type='text' id='first_name' required />
             </div>
             <div class='large-6 columns'>
-              <label for='email'>Email Address</label>
-              <input type='email' id='email' required />
+              <label for='email'>Last Name</label>
+              <input type='text' id='last_name' required />
             </div>
           </div>
 
@@ -38,8 +38,8 @@
               <input type='text' id='phone' required />
             </div>
             <div class='large-6 columns'>
-              <label for='zip'>ZIP Code</label>
-              <input type='text' id='zip' required />
+              <label for='email'>Email Address</label>
+              <input type='email' id='email' required />
             </div>
           </div>
 
@@ -50,7 +50,11 @@
                 <span class='lightblue'>Msg &amp; data rates may apply</span>
               </label>
             </div>
-            <div class='large-6 columns'>
+            <div class='large-3 columns zip-code-container'>
+              <label for='zip'>ZIP Code</label>
+              <input type='text' id='zip' required />
+            </div>
+            <div class='large-3 columns submit-container'>
               <input type='submit' class='submit' value='Sign Me Up' />
             </div>
           </div>
