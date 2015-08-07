@@ -89,6 +89,7 @@ $ ->
       , 2000
     else
       $('#signup-form input:invalid').addClass 'invalid'
+      alert 'Please fill out the missing field(s).'
 
   # "Secret" click to send the queue
   $('.footer img').on 'click', =>
