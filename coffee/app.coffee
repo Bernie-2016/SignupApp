@@ -44,6 +44,14 @@ $ ->
     else
       $(@).removeClass 'invalid'
 
+  # Require cell phone # if the text msg box is checked
+  $('#canText').on 'change', =>
+    if $('#canText').is(':checked')
+      $('#phone').attr('required', 'required')
+    else
+      $('#phone').removeAttr 'required'
+      $('#phone').removeClass 'invalid'
+
   # Handle form submission
   $('#signup-form').on 'submit', (event) =>
     event.preventDefault()
@@ -79,6 +87,8 @@ $ ->
         $('#signup-form')[0].reset()
         $('#name').focus()
       , 2000
+    else
+      $('#signup-form input:invalid').addClass 'invalid'
 
   # "Secret" click to send the queue
   $('.footer img').on 'click', =>

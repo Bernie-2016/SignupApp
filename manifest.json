@@ -1,7 +1,7 @@
 {
   "name": "Signup App",
   "description": "App for users to sign up for Bernie Sanders mailings.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "manifest_version": 2,
   "app": {
     "background": {
