@@ -4,7 +4,11 @@ $ ->
   $('#zip').mask('99999')
 
   # Size the form
-  $('#form-container').css 'height', $(window).height() - $('#form-container').offset().top - $('.footer').height() - 50
+  resize = ->
+    $('#form-container').css 'height', $(window).height() - $('#form-container').offset().top - $('.footer').height() - 50
+  $(window).on 'resize', =>
+    resize()
+  resize()
 
   # Set up Dexie DB
   db = new Dexie('SignupApp')
@@ -15,18 +19,6 @@ $ ->
   # Method to add signup to IndexedDB
   addSignup = (signup) ->
     db.signups.add(signup)
-
-  # Method to store signup in file synced to Google Drive
-  storeSignup = (signup) ->
-    chrome.syncFileSystem.requestFileSystem (fs) ->
-      now = new Date()
-      file = "#{now.getMonth() + 1}-#{now.getDate()}-#{now.getFullYear()}-signups.csv"
-      fs.root.getFile file, { create: true }, (f) ->
-        f.createWriter (fileWriter) ->
-          # Move to end of file
-          fileWriter.seek(fileWriter.length)
-          signupStr = "#{signup.name},#{signup.email},#{signup.phone},#{signup.zip},#{signup.canText}"
-          fileWriter.write(new Blob([signupStr], { type: 'text/plain' }))
 
   # Method to send signups to the API
   sendSignups = ->
@@ -67,7 +59,7 @@ $ ->
 
       addSignup(data)
       sendSignups()
-      storeSignup(data)
+      chrome.runtime.sendMessage(data)
 
       $('.submit').animate
         backgroundColor: '#4ACC66'
