@@ -37,24 +37,7 @@ $ ->
       console.log error
     )
 
-  # Validate inputs when they blur
-  $('#signup-form input').on 'blur', ->
-    if $(@).is(':invalid')
-      $(@).addClass 'invalid'
-    else
-      $(@).removeClass 'invalid'
-
-  # Require cell phone # if the text msg box is checked
-  $('#canText').on 'change', =>
-    if $('#canText').is(':checked')
-      $('#phone').attr('required', 'required')
-    else
-      $('#phone').removeAttr 'required'
-      $('#phone').removeClass 'invalid'
-
-  # Handle form submission
-  $('#signup-form').on 'submit', (event) =>
-    event.preventDefault()
+  submit = ->
     if !$('#signup-form').is(':invalid')
       data = 
         first_name: $('#first_name').val()
@@ -89,7 +72,44 @@ $ ->
       , 2000
     else
       $('#signup-form input:invalid').addClass 'invalid'
-      alert 'Please fill out the missing field(s).'
+
+      $('.submit').animate
+        backgroundColor: 'red'
+      , 500
+      setTimeout ->
+        $('.submit').val('Missing Fields!')
+      , 250
+      setTimeout ->
+        $('.submit').animate
+          backgroundColor: '#fd505e'
+        , 500
+      , 1500
+      setTimeout ->
+        $('.submit').val('Sign Me Up')
+      , 1750
+
+  # Validate inputs when they blur
+  $('#signup-form input').on 'blur', ->
+    if $(@).is(':invalid')
+      $(@).addClass 'invalid'
+    else
+      $(@).removeClass 'invalid'
+
+  # Require cell phone # if the text msg box is checked
+  $('#canText').on 'change', =>
+    if $('#canText').is(':checked')
+      $('#phone').attr('required', 'required')
+    else
+      $('#phone').removeAttr 'required'
+      $('#phone').removeClass 'invalid'
+
+  # Handle form submission
+  $('#signup-form').on 'submit', (event) =>
+    event.preventDefault()
+    submit()
+  $('#signup-form input.submit').on 'click', (event) =>
+    event.preventDefault()
+    submit()
 
   # "Secret" click to send the queue
   $('.footer img').on 'click', =>
