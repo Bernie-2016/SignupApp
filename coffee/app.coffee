@@ -27,7 +27,6 @@ $ ->
           fileWriter.seek(fileWriter.length)
           signupStr = "#{signup.name},#{signup.email},#{signup.phone},#{signup.zip},#{signup.canText}"
           fileWriter.write(new Blob([signupStr], { type: 'text/plain' }))
-          console.log 'written'
 
   # Method to send signups to the API
   sendSignups = ->
@@ -35,8 +34,7 @@ $ ->
       return if unsent.length == 0
       $.ajax
         method: 'post'
-        # url: 'https://sanders-api.herokuapp.com/api/v1/signups'
-        url: 'http://localhost:3000/api/v1/signups'
+        url: 'https://sanders-api.herokuapp.com/api/v1/signups'
         data: 
           signups: unsent
           secret: window.secret
