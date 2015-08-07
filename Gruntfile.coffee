@@ -92,6 +92,17 @@ module.exports = (grunt) ->
           '**/*.scss'
         ]
         tasks: ['default']
+
+    # grunt zip
+    zip:
+      'pkg/SignupApp.zip': [
+        'dist/**/*'
+        'fonts/**/*'
+        'img/**/*'
+        'background.js'
+        'manifest.json'
+        'window.html'
+      ]
  
   # load plugins
   grunt.loadNpmTasks 'grunt-contrib-clean'
@@ -102,6 +113,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-zip'
 
   # tasks
   grunt.registerTask 'default', [
