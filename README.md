@@ -17,3 +17,7 @@ Chrome app for people at events to sign up for Bernie Sanders mails.
 ## Development
 
 Run `grunt watch` to recompile the app whenever a coffee or scss file changes.
+
+## Deployment
+
+Run `grunt zip` to build a zipfile containing minified production code, to be uploaded through the Chrome developer console.
