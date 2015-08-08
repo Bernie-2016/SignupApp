@@ -14,6 +14,7 @@ jsToConcat = [
   'bower_components/jquery/dist/jquery.js'
   'bower_components/jquery.maskedInput/dist/jquery.maskedInput.js'
   'bower_components/jqueryui/jquery-ui.js'
+  'bower_components/mailcheck/src/mailcheck.js'
   'bower_components/dexie/dist/latest/Dexie.js'
   '.tmp/js/secret.js'
   '.tmp/js/app.js'

@@ -95,6 +95,22 @@ $ ->
     else
       $(@).removeClass 'invalid'
 
+  # Check email form
+  $('#email').on 'blur', ->
+    $(@).mailcheck
+      suggested: (element, suggestion) ->
+        $('small.email-suggestion').data('email-suggestion', suggestion.full)
+        $('small.email-suggestion .suggestion').html("Did you mean #{suggestion.address}@<strong>#{suggestion.domain}</strong>?")
+        $('small.email-suggestion').show()
+      empty: (element) ->
+        $('small.email-suggestion').hide()
+  $('small.email-suggestion').on 'click', (event) ->
+    return if $(event.target).is('.x')
+    $('#email').val($(@).data('email-suggestion'))
+    $('small.email-suggestion').hide()
+  $('small.email-suggestion .x').on 'click', ->
+    $('small.email-suggestion').hide()
+
   # Require cell phone # if the text msg box is checked
   $('#canText').on 'change', =>
     if $('#canText').is(':checked')

@@ -19,6 +19,7 @@
     "jquery": "~2.1.4",
     "jquery.maskedinput": "~1.4.1",
     "foundation": "~5.5.2",
-    "jqueryui": "~1.11.4"
+    "jqueryui": "~1.11.4",
+    "mailcheck": "~1.1.1"
   }
 }

@@ -123,6 +123,27 @@ div#main {
     .invalid {
       border: solid red 2px;
     }
+
+    small.email-suggestion {
+      position: fixed;
+      background-color: white;
+      margin-top: -0.95rem;
+      margin-left: 10px;
+      height: 25px;
+      cursor: pointer;
+      font-family: 'Freight Sans Medium';
+      font-size: 15px;
+      padding: 3px;
+      font-style: italic;
+      width: 25%;
+      display: none;
+
+      .x {
+        float: right;
+        cursor: pointer;
+        padding-right: 3px;
+      }
+    }
   }
 
   .footer {
