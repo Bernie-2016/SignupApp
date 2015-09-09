@@ -6,7 +6,7 @@ $ ->
   # Size the form
   resize = ->
     $('#form-container').css 'height', $(window).height() - $('#form-container').offset().top - $('.footer').height() - 50
-  $(window).on 'resize', =>
+  $(window).on 'resize', ->
     resize()
   resize()
 
@@ -37,8 +37,29 @@ $ ->
       console.log error
     )
 
+  # Method to validate the form
+  validateForm = ->
+    valid = true
+
+    # Check each field.
+    for field in ['first_name', 'last_name', 'phone', 'email', 'zip']
+      fieldInput = $("##{field}")
+      console.log fieldInput.val()
+      fieldInvalid = true unless typeof(validate.single(fieldInput.val(), presence: true)) is 'undefined'
+      fieldInvalid = false if field is 'phone' && !$('#canText').is(':checked')
+      fieldInvalid = true if field is 'email' && typeof(validate.single(fieldInput.val(), email: true)) isnt 'undefined'
+      if fieldInvalid
+        fieldInput.addClass 'invalid'
+        valid = false
+      else
+        fieldInput.removeClass 'invalid'
+
+    # Return overall result.
+    valid
+
   submit = ->
-    if !$('#signup-form').is(':invalid')
+    console.log validateForm()
+    if validateForm()
       data = 
         first_name: $('#first_name').val()
         last_name: $('#last_name').val()
@@ -71,8 +92,6 @@ $ ->
         $('#name').focus()
       , 2000
     else
-      $('#signup-form input:invalid').addClass 'invalid'
-
       $('.submit').animate
         backgroundColor: 'red'
       , 500
@@ -87,13 +106,6 @@ $ ->
       setTimeout ->
         $('.submit').val('Sign Me Up')
       , 1750
-
-  # Validate inputs when they blur
-  $('#signup-form input').on 'blur', ->
-    if $(@).is(':invalid')
-      $(@).addClass 'invalid'
-    else
-      $(@).removeClass 'invalid'
 
   # Check email form
   $('#email').on 'blur', ->
@@ -111,22 +123,19 @@ $ ->
   $('small.email-suggestion .x').on 'click', ->
     $('small.email-suggestion').hide()
 
-  # Require cell phone # if the text msg box is checked
-  $('#canText').on 'change', =>
-    if $('#canText').is(':checked')
-      $('#phone').attr('required', 'required')
-    else
-      $('#phone').removeAttr 'required'
-      $('#phone').removeClass 'invalid'
+  # Validate inputs when they blur
+  $('#signup-form input').on 'blur', ->
+    validateForm()
 
   # Handle form submission
-  $('#signup-form').on 'submit', (event) =>
+  $('#signup-form').on 'submit', (event) ->
     event.preventDefault()
     submit()
-  $('#signup-form input.submit').on 'click', (event) =>
+  $('#signup-form input.submit').on 'click', (event) ->
     event.preventDefault()
     submit()
 
-  # "Secret" click to send the queue
-  $('.footer img').on 'click', =>
+  # Resend the queue every 15 seconds in event of poor internet connection.
+  window.setInterval ->
     sendSignups()
+  , 15000

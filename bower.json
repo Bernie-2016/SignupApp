@@ -16,10 +16,11 @@
   ],
   "dependencies": {
     "dexie": "~1.1.0",
+    "foundation": "~5.5.2",
     "jquery": "~2.1.4",
     "jquery.maskedinput": "~1.4.1",
-    "foundation": "~5.5.2",
     "jqueryui": "~1.11.4",
-    "mailcheck": "~1.1.1"
+    "mailcheck": "~1.1.1",
+    "validate": "~0.8.0"
   }
 }
