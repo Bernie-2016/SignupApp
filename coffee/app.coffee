@@ -44,7 +44,6 @@ $ ->
     # Check each field.
     for field in ['first_name', 'last_name', 'phone', 'email', 'zip']
       fieldInput = $("##{field}")
-      console.log fieldInput.val()
       fieldInvalid = true unless typeof(validate.single(fieldInput.val(), presence: true)) is 'undefined'
       fieldInvalid = false if field is 'phone' && !$('#canText').is(':checked')
       fieldInvalid = true if field is 'email' && typeof(validate.single(fieldInput.val(), email: true)) isnt 'undefined'
