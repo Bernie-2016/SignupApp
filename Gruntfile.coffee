@@ -127,3 +127,8 @@ module.exports = (grunt) ->
     'uglify'
     'cssmin'
   ]
+
+  grunt.registerTask 'build', [
+    'default'
+    'zip'
+  ]
