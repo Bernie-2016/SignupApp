@@ -57,7 +57,6 @@ $ ->
     valid
 
   submit = ->
-    console.log validateForm()
     if validateForm()
       data = 
         first_name: $('#first_name').val()
